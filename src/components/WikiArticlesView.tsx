@@ -7,7 +7,7 @@ import { getMostViewedPages } from '../redux/wikiSlice';
 import ArticleDatePicker from './ArticleDatePicker';
 import Pagination from './Pagination';
 
-function WikiView() {
+function WikiArticlesView() {
 
     // User filters
     const [date, setDate] = useState<Date>(new Date(Date.now() - 86400000)); // default to yesterday
@@ -73,4 +73,4 @@ function WikiView() {
   );
 }
 
-export default WikiView;
+export default WikiArticlesView;

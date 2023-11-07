@@ -1,12 +1,12 @@
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import WikiView from './components/WikiView';
+import WikiArticlesView from './components/WikiArticlesView';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <WikiView />
+        <WikiArticlesView />
       </div>
     </Provider>
   );
