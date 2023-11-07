@@ -15,8 +15,8 @@ const initialState: WikiState = {
 
 export const getMostViewedPages = createAsyncThunk(
   'wiki/getMostViewedPages',
-  async ({ project, date, limit }: { project: string; date: Date; limit: number }) => {
-    return await fetchMostViewedPages(project, date, limit);
+  async ({ project, date }: { project: string; date: Date; }) => {
+    return await fetchMostViewedPages(project, date);
   }
 );
 

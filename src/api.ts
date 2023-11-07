@@ -3,12 +3,12 @@
 
 const WIKI_BASE_URL = 'https://wikimedia.org/api/rest_v1/metrics/pageviews/top';
     
-export const fetchMostViewedPages = async (project: string, date: Date, limit: number) => {
+export const fetchMostViewedPages = async (project: string, date: Date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
 
-    console.log(`year: {year} - month: {month} - day: {day}`);
+    console.log(`year: ${year} - month: ${month} - day: ${day}`);
     console.log(`Fetching: ${WIKI_BASE_URL}/${project}/all-access/${year}/${month}/${day}`);
 
     const response = await fetch(`${WIKI_BASE_URL}/${project}/all-access/${year}/${month}/${day}`, {
@@ -21,5 +21,5 @@ export const fetchMostViewedPages = async (project: string, date: Date, limit: n
   
     const data = await response.json();
     
-    return data.items[0].articles.slice(0, limit);
+    return data.items[0].articles;
 };
