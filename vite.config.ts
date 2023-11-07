@@ -8,7 +8,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true, // won't need to import test function definitions
+    globals: true, // This is so we don't need to import test function definitions directly on the test files
     environment: 'jsdom',
     css: true,
     setupFiles: 'src/test/setup.ts'
