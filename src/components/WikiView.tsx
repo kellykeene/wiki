@@ -1,35 +1,38 @@
 import { useState } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import { getMostViewedPages } from '../redux/wikiSlice';
+
 import ArticleDatePicker from './ArticleDatePicker';
 import Pagination from './Pagination';
 
 function WikiView() {
+
     // User filters
-    const [date, setDate] = useState<Date>(new Date(Date.now() - 24 * 60 * 60 * 1000)); // default to yesterday
-    const [resultsPerPage, setResultsPerPage] = useState<number>(100);
-    const [country, setCountry] = useState('en.wikipedia');
+    const [date, setDate] = useState<Date>(new Date(Date.now() - 86400000)); // default to yesterday
+    const [resultsPerPage, setResultsPerPage] = useState<number>(100); // default to 100 results per page
+    const [country, setCountry] = useState('en.wikipedia'); // default to english
 
     // Redux
     const dispatch = useDispatch<AppDispatch>();
-
-    // Articles and pagination
     const { articles, loading, error } = useSelector((state: RootState) => state.wiki);
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const pageCount = Math.ceil(articles.length/resultsPerPage);
-
+    
+    // Pagination
+    const [currentPage, setCurrentPage] = useState<number>(1);   // default to page 1
+    const pageCount = Math.ceil(articles.length/resultsPerPage); // calulate how many pages we need 
+                                                                 // per results per page setting
+    // Determine the articles to display on the current page
     const indexOfLastArticle = currentPage * resultsPerPage;
     const indexOfFirstArticle = indexOfLastArticle - resultsPerPage;
     const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
 
-    console.log(`articles.length: ${articles.length} currentPage: ${currentPage} pageCount: ${pageCount} indexOfFirstArticle: ${indexOfFirstArticle} indexOfLastArticle: ${indexOfLastArticle}`);
-
+    // Handler for paginating
     const handlePageChange = (pageNumber: number) => {
-        console.log(`Setting current page to ${pageNumber}`);
         setCurrentPage(pageNumber);
     };
 
+    // Handler for Search button submit
     const handleSubmit = () => {
         dispatch(getMostViewedPages({ project: country, date }));
     };
