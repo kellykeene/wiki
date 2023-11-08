@@ -1,0 +1,32 @@
+#floatingSelectDate.form-select:focus, :focus-visible {
+    border-color: #dee2e6 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+#articlesContainer {
+    padding: 20px 50px;
+    background-color: #FFF;
+    border: 1px solid #A5AAAB;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#articlesContainer .row {
+    text-align: left;
+    padding: 20px 10px;
+    background-color: #FFF;
+    border: 1px solid #A5AAAB;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#articlesContainer .row .rank {
+    color: #A5AAAB;
+    text-align: left;
+}
+
+#articlesContainer .row .views {
+    color: #A5AAAB;
+    text-align: right;
+}
