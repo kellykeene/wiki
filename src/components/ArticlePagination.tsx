@@ -4,7 +4,7 @@ interface PaginationProps {
     onPageChange: Function
 };
 
-function Pagination({pageCount, currentPage, onPageChange}: PaginationProps) {
+function ArticlePagination({pageCount, currentPage, onPageChange}: PaginationProps) {
 
     const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
   
@@ -23,4 +23,4 @@ function Pagination({pageCount, currentPage, onPageChange}: PaginationProps) {
     );
 }
 
-export default Pagination;
+export default ArticlePagination;

@@ -1,4 +1,4 @@
-#floatingSelectDate.form-select:focus, :focus-visible {
+.form-select:focus, :focus-visible {
     border-color: #dee2e6 !important;
     outline: 0 !important;
     box-shadow: none !important;
@@ -21,12 +21,45 @@
     margin-top: 20px;
 }
 
-#articlesContainer .row .rank {
+#articlesContainer .rank {
     color: #A5AAAB;
     text-align: left;
 }
 
-#articlesContainer .row .views {
+#articlesContainer .title {
+    text-align: left;
+}
+
+#articlesContainer .views {
     color: #A5AAAB;
     text-align: right;
+}
+
+#filterContainer {
+    padding: 20px;
+    background-color: #FFF;
+    border: 1px solid #A5AAAB;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+#filterContainer label {
+    text-transform: uppercase;
+}
+
+#filterContainer img {
+    width: 60px;
+}
+
+#filterContainer select {
+    border: none;
+    min-width: 140px;
+}
+
+#filterContainer Button {
+    padding: 20px;
+}
+
+.vr {
+    margin: 0px 1.2rem;
 }
