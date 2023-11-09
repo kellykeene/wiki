@@ -24,23 +24,28 @@ function ArticleFilters() {
     // Redux dispatcher
     const dispatch = useDispatch<AppDispatch>();
 
-    // User filters
+    // Date filter
     const [date, setDate] = useState<Date>(new Date(Date.now() - 86400000)); // default to yesterday
     const selectedDateDisplay = date.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' });
     const [datePickerIsOpen, setDatePickerIsOpen] = useState<boolean>(false); // default to date picker closed
+    
+    // Number of results filter
     const resultsPerPage = useSelector((state: RootState) => state.pagination.resultsPerPage);
-    const [country, setCountry] = useState('en.wikipedia'); // default to english
-
+    
     // Handler for setting the number of results per page
     const handleSetResultsPerPage = (numResults: number) => {
         dispatch(setResultsPerPage(numResults));
     };
+
+    // Country filter
+    const [country, setCountry] = useState('en.wikipedia'); // default to english
 
     // Handler for Search button submit
     const handleSubmit = () => {
         dispatch(getMostViewedPages({ country: country, date }));
     };
 
+    
     // Logic for closing the datepicker when the user clicks outside of it
     const datepickerRef = useRef<HTMLDivElement>(null);
 
@@ -83,7 +88,7 @@ function ArticleFilters() {
                             </div>
                             <div className="vr d-none d-md-block" />
                         </div>
-                        
+
                         <ArticleDatePicker isOpen={datePickerIsOpen} value={date} onChange={setDate} />
                     
                     </div>
