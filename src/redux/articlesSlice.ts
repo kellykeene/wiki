@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchMostViewedPages } from '../api';
+import { fetchMostViewedPages } from '../api/api';
 
 interface WikiState {
   articles: any[];
@@ -15,8 +15,8 @@ const initialState: WikiState = {
 
 export const getMostViewedPages = createAsyncThunk(
   'wiki/getMostViewedPages',
-  async ({ project, date }: { project: string; date: Date; }) => {
-    return await fetchMostViewedPages(project, date);
+  async ({ country, date }: { country: string; date: Date; }) => {
+    return await fetchMostViewedPages(country, date);
   }
 );
 

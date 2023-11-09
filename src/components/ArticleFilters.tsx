@@ -38,7 +38,7 @@ function ArticleFilters() {
 
     // Handler for Search button submit
     const handleSubmit = () => {
-        dispatch(getMostViewedPages({ project: country, date }));
+        dispatch(getMostViewedPages({ country: country, date }));
     };
 
     // Logic for closing the datepicker when the user clicks outside of it
