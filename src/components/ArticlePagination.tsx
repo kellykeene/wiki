@@ -1,3 +1,5 @@
+import './ArticlePagination.css';
+
 interface PaginationProps {
     pageCount: number,
     currentPage: number,

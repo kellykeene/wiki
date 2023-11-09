@@ -146,7 +146,7 @@ function WikiArticlesView() {
             </Col>
         </Row>
         <Row>
-            <Col>
+            <Col xs={12}>
                 <ArticlePagination currentPage={currentPage} pageCount={pageCount} onPageChange={handlePageChange} />
             </Col>
         </Row>
