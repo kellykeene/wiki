@@ -13,7 +13,7 @@ function ArticleDatePicker({isOpen, value, onChange}: ArticleDatePickerProps) {
   const yesterday = new Date(Date.now() - 86400000);
 
   return (
-    <div style={{display: isOpen ? 'block' : 'none'}}>
+    <div className="datepicker" style={{display: isOpen ? 'block' : 'none'}}>
       <DatePicker
         name="selectedDate"
         selected={value}

@@ -1,3 +1,15 @@
-.react-datepicker__input-container input[type="text"] {
+.datepicker {
+    position: relative;
+    top: -30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.react-datepicker__input-container {
     visibility: hidden;
+}
+
+.react-datepicker-wrapper:input {
+    display: none !important;
 }
