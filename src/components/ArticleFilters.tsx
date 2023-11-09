@@ -21,7 +21,7 @@ import './ArticleFilters.css';
 
 function ArticleFilters() {
 
-    //Redux
+    // Redux dispatcher
     const dispatch = useDispatch<AppDispatch>();
 
     // User filters
@@ -65,7 +65,12 @@ function ArticleFilters() {
         <Container id="filterContainer" fluid>
             <Row>
                 <Col sm={12} md={3}>
+
+                    {/* datePickerRef is used to define the area around the open datepicker control 
+                    so that we can detect when the user clicks outside of it and close the control. */}
                     <div ref={datepickerRef}>
+
+                        {/* Grouping of icon, select, and label */}
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <img src={datepickerIcon} alt='Date picker icon' />
                             <div className="select-container">
@@ -78,7 +83,9 @@ function ArticleFilters() {
                             </div>
                             <div className="vr d-none d-md-block" />
                         </div>
+                        
                         <ArticleDatePicker isOpen={datePickerIsOpen} value={date} onChange={setDate} />
+                    
                     </div>
                 </Col>
                 <Col sm={12} md={3}>

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchMostViewedPages } from '../api/api';
 
 interface WikiState {
-  articles: any[];
+  articles: {rank: number, article: string, views: number}[];
   loading: boolean;
   error: string | null;
 }

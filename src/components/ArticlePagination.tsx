@@ -4,9 +4,7 @@ import { RootState, AppDispatch } from '../redux/store';
 import './ArticlePagination.css';
 
 interface PaginationProps {
-    pageCount: number,
-    currentPage: number,
-    onPageChange: Function
+    pageCount: number
 };
 
 function ArticlePagination({pageCount}: PaginationProps) {
