@@ -144,8 +144,6 @@ function WikiArticlesView() {
                     ))}
                 </Container>
             </Col>
-            <Col></Col>
-            <Col></Col>
         </Row>
         <Row>
             <Col>
