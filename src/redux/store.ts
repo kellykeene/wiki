@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import wikiReducer from './wikiSlice';
+import articlesReducer from './articlesSlice';
+import paginationReducer from './paginationReducer';
 
 export const store = configureStore({
   reducer: {
-    wiki: wikiReducer,
+    articles: articlesReducer,
+    pagination: paginationReducer,
   },
 });
 

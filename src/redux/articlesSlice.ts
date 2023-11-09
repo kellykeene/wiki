@@ -20,8 +20,8 @@ export const getMostViewedPages = createAsyncThunk(
   }
 );
 
-export const wikiSlice = createSlice({
-  name: 'wiki',
+export const articlesSlice = createSlice({
+  name: 'articles',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -40,4 +40,4 @@ export const wikiSlice = createSlice({
   },
 });
 
-export default wikiSlice.reducer;
+export default articlesSlice.reducer;

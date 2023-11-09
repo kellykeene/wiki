@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
-import { getMostViewedPages } from '../redux/wikiSlice';
+import { getMostViewedPages } from '../redux/articlesSlice';
+import { setCurrentPage } from '../redux/actions';
 
 import ArticleDatePicker from './ArticleDatePicker';
 import ArticlePagination from './ArticlePagination';
@@ -28,22 +29,24 @@ function WikiArticlesView() {
     const [resultsPerPage, setResultsPerPage] = useState<number>(100); // default to 100 results per page
     const [country, setCountry] = useState('en.wikipedia'); // default to english
 
-    // Redux
+    // Redux dispatcher
     const dispatch = useDispatch<AppDispatch>();
-    const { articles, loading, error } = useSelector((state: RootState) => state.wiki);
+
+    // Articles
+    const { articles, loading, error } = useSelector((state: RootState) => state.articles);
     
     // Pagination
-    const [currentPage, setCurrentPage] = useState<number>(1);   // default to page 1
-    const pageCount = Math.ceil(articles.length/resultsPerPage); // calulate how many pages we need 
-                                                                 // per results per page setting
-    // Determine the articles to display on the current page
+    const currentPage = useSelector((state: RootState) => state.pagination.currentPage);
+    
+    // Determine the subset of articles to display on the current page
+    const pageCount = Math.ceil(articles.length/resultsPerPage);
     const indexOfLastArticle = currentPage * resultsPerPage;
     const indexOfFirstArticle = indexOfLastArticle - resultsPerPage;
     const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
 
     // Handler for paginating
     const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber);
+        dispatch(setCurrentPage(pageNumber));
     };
 
     // Handler for Search button submit
