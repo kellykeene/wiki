@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPage } from '../redux/articlesSlice';
 import { RootState, AppDispatch } from '../redux/store';
 
+import { Pagination } from 'react-bootstrap';
+
 import './ArticlePagination.css';
 
 function ArticlePagination() {
@@ -10,24 +12,46 @@ function ArticlePagination() {
 
     const currentPage = useSelector((state: RootState) => state.articles.currentPage);
     const totalPages = useSelector((state: RootState) => state.articles.totalPages);
-    const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+    
+    const startPage = currentPage >= totalPages-2 ? totalPages - 4 : Math.max(1, currentPage - 2);
+    const endPage = Math.min(startPage + 4, totalPages);
+    
+    const pages = [];
+    for (let page = startPage; page <= endPage; page++) {
+        pages.push(page);
+    }
 
     const handlePageChange = (page: number) => {
+        console.log(`handlePageChange: ${page}`);
         dispatch(setCurrentPage(page));
     }; 
 
+    const handlePrevClick = () => {
+        if (currentPage > 1) {
+            dispatch(setCurrentPage(currentPage - 1));
+        }
+    };
+
+    const handleNextClick = () => {
+        if (currentPage < totalPages) {
+            dispatch(setCurrentPage(currentPage + 1));
+        }
+    };
+
     return (
-      <nav>
-        <ul className="pagination">
-          {pages.map((page) => (
-            <li key={page} className={`page-item ${page === currentPage ? 'active' : ''}`}>
-              <button onClick={() => handlePageChange(page)} className="page-link">
-                {page}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <Pagination>
+            <Pagination.Prev onClick={() => handlePrevClick()} disabled={currentPage === startPage}></Pagination.Prev>
+            {pages.map(page => (
+                <Pagination.Item
+                    key={page}
+                    active={page === currentPage}
+                    onClick={() => handlePageChange(page)}
+                    className={'page-link'}>
+                    {page}
+                </Pagination.Item>
+            ))}
+            <Pagination.Next onClick={() => handleNextClick()} disabled={currentPage === totalPages}></Pagination.Next>
+        </Pagination>
     );
 }
 

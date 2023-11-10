@@ -1,21 +1,25 @@
-nav {
+.pagination {
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
-.page-item button {
-    color: #000;
-    border-radius: 50%;
+.page-link.page-item {
+    padding: 0;
     margin: 0 3px;
 }
 
-.page-item.active button {
+.page-link {
+    color: #000;
+    border-radius: 50%;
+}
+
+.page-link:active {
     background-color: #E1E9CC;
     border: none;
     color: #000;
 }
 
-button.page-link:focus {
+.page-link:focus {
     box-shadow: none;
 }
