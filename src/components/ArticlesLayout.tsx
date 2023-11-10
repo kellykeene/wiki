@@ -12,18 +12,11 @@ import './ArticlesLayout.css';
 
 function ArticlesLayout() {
 
-    // Articles
-    const { articles, loading, error } = useSelector((state: RootState) => state.articles);
+    // Article fetching state
+    const { loading, error } = useSelector((state: RootState) => state.articles);
     
-    // Pagination
-    const currentPage = useSelector((state: RootState) => state.pagination.currentPage);
-    const resultsPerPage = useSelector((state: RootState) => state.pagination.resultsPerPage);
-
-    // Determine the subset of articles to display on the current page
-    const pageCount = Math.ceil(articles.length/resultsPerPage);
-    const indexOfLastArticle = currentPage * resultsPerPage;
-    const indexOfFirstArticle = indexOfLastArticle - resultsPerPage;
-    const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
+    // Determine the subset of fetched articles to display for the current/active page
+    const currentPageArticles = useSelector((state: RootState) => state.articles.currentPageArticles);
 
     return (
         <Container fluid>
@@ -42,8 +35,8 @@ function ArticlesLayout() {
                     <Container id="articlesContainer" fluid>
                         {loading && <p>Loading...</p>}
                         {error && <p>An error occurred: {error}</p>}
-                        {!loading && !error && articles.length === 0 && <p>No articles found</p>}
-                        {currentArticles.map((article, index) => (
+                        {!loading && !error && currentPageArticles.length === 0 && <p>No articles found</p>}
+                        {currentPageArticles.map((article, index) => (
                             <Row key={index}>
                                 <Col xs={1} className="p-2 rank">{article.rank}</Col>
                                 <Col className="p-2 title">{(article.article).toString().replaceAll('_', ' ')}</Col>
@@ -55,7 +48,7 @@ function ArticlesLayout() {
             </Row>
             <Row>
                 <Col xs={12}>
-                    <ArticlePagination pageCount={pageCount} />
+                    <ArticlePagination />
                 </Col>
             </Row>
         </Container>

@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { RootState, AppDispatch } from '../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMostViewedPages } from '../redux/articlesSlice';
-import { setResultsPerPage } from '../redux/actions';
+import { fetchArticles, setResultsPerPage } from '../redux/articlesSlice';
 
 import ArticleDatePicker from './ArticleDatePicker';
 
@@ -30,7 +29,7 @@ function ArticleFilters() {
     const [datePickerIsOpen, setDatePickerIsOpen] = useState<boolean>(false); // default to date picker closed
     
     // Number of results filter
-    const resultsPerPage = useSelector((state: RootState) => state.pagination.resultsPerPage);
+    const resultsPerPage = useSelector((state: RootState) => state.articles.resultsPerPage);
     
     // Handler for setting the number of results per page
     const handleSetResultsPerPage = (numResults: number) => {
@@ -42,9 +41,8 @@ function ArticleFilters() {
 
     // Handler for Search button submit
     const handleSubmit = () => {
-        dispatch(getMostViewedPages({ country: country, date }));
+        dispatch(fetchArticles({country, date}));
     };
-
     
     // Logic for closing the datepicker when the user clicks outside of it
     const datepickerRef = useRef<HTMLDivElement>(null);

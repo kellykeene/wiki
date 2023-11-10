@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import articlesReducer from './articlesSlice';
-import paginationReducer from './paginationReducer';
+import articleReducer from './articlesSlice';
 
 export const store = configureStore({
   reducer: {
-    articles: articlesReducer,
-    pagination: paginationReducer,
+    articles: articleReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,17 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentPage } from '../redux/actions';
+import { setCurrentPage } from '../redux/articlesSlice';
 import { RootState, AppDispatch } from '../redux/store';
+
 import './ArticlePagination.css';
 
-interface PaginationProps {
-    pageCount: number
-};
-
-function ArticlePagination({pageCount}: PaginationProps) {
+function ArticlePagination() {
 
     const dispatch = useDispatch<AppDispatch>();
-    const currentPage = useSelector((state: RootState) => state.pagination.currentPage);
-    const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+
+    const currentPage = useSelector((state: RootState) => state.articles.currentPage);
+    const totalPages = useSelector((state: RootState) => state.articles.totalPages);
+    const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     const handlePageChange = (page: number) => {
         dispatch(setCurrentPage(page));
