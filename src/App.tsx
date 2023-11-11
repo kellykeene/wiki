@@ -8,6 +8,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <h2>Top Wikipedia articles</h2>
         <ArticlesLayout />
       </div>
     </Provider>

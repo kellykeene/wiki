@@ -28,6 +28,9 @@ function ArticleFilters() {
     const selectedDateDisplay = date.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' });
     const [datePickerIsOpen, setDatePickerIsOpen] = useState<boolean>(false); // default to date picker closed
     
+    // Country filter
+    const [country, setCountry] = useState('en.wikipedia'); // default to english
+
     // Number of results filter
     const resultsPerPage = useSelector((state: RootState) => state.articles.resultsPerPage);
     
@@ -35,9 +38,6 @@ function ArticleFilters() {
     const handleSetResultsPerPage = (numResults: number) => {
         dispatch(setResultsPerPage(numResults));
     };
-
-    // Country filter
-    const [country, setCountry] = useState('en.wikipedia'); // default to english
 
     // Handler for Search button submit
     const handleSubmit = () => {
@@ -64,6 +64,10 @@ function ArticleFilters() {
         };
     }, []);
 
+    const handleDateSelectChange = () => {
+        setDatePickerIsOpen(false);
+    };
+
     return (
         <Container id="filterContainer" fluid>
             <Row>
@@ -78,24 +82,22 @@ function ArticleFilters() {
                             <img src={datepickerIcon} alt='Date picker icon' />
                             <div className="select-container">
                                 <FloatingLabel controlId="floatingSelectDate" label="Date">
-                                    <Form.Select onFocus={(e) => e.stopPropagation()} onChange={undefined} value={selectedDateDisplay}>
+                                    <Form.Select value={selectedDateDisplay} onChange={(e) => handleDateSelectChange()}>
                                         <option value="1">{selectedDateDisplay}</option>
                                     </Form.Select>
                                 </FloatingLabel>
-                                <div className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)}></div>
+                                <div className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)} aria-label="Select a date"></div>
                             </div>
                             <div className="vr d-none d-md-block" />
                         </div>
-
                         <ArticleDatePicker isOpen={datePickerIsOpen} value={date} onChange={setDate} />
-                    
                     </div>
                 </Col>
                 <Col sm={12} md={3}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={numResultsIcon} alt='Num results icon' />
                         <FloatingLabel controlId="floatingSelectResults" label="Num results">
-                            <Form.Select value={resultsPerPage.toString()} onChange={(e) => handleSetResultsPerPage(Number(e.target.value))}>
+                            <Form.Select value={resultsPerPage.toString()} onChange={(e) => handleSetResultsPerPage(Number(e.target.value))} aria-label="Select the number of results per page">
                                 <option value="25">25</option>
                                 <option value="50">50</option>
                                 <option value="75">75</option>
@@ -110,7 +112,7 @@ function ArticleFilters() {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={countryIcon} alt='Country icon' />
                         <FloatingLabel controlId="floatingCountry" label="Country">
-                            <Form.Select value={country} onChange={(e) => setCountry(e.target.value)}>
+                            <Form.Select value={country} onChange={(e) => setCountry(e.target.value)} aria-label="Select a country">
                                 <option value="en.wikipedia">English</option>
                                 <option value="de.wikipedia">German</option>
                                 <option value="fr.wikipedia">French</option>
@@ -135,7 +137,14 @@ function ArticleFilters() {
                 </Col>
                 <Col sm={12} md={3}>
                     <div className="d-grid gap-2">
-                        <Button variant='light' style={{ color: '#FFFFFF', backgroundColor: '#025B4B' }} className="btn btn-lg center modal-button rounded-pill" onClick={handleSubmit}>Search</Button>
+                        <Button 
+                            variant='light' 
+                            style={{ color: '#FFFFFF', backgroundColor: '#025B4B' }} 
+                            className="btn btn-lg center modal-button rounded-pill" 
+                            onClick={handleSubmit} 
+                            aria-label="Search for top articles">
+                                Search
+                            </Button>
                     </div>
                 </Col>
             </Row>

@@ -22,11 +22,6 @@ function ArticlesLayout() {
         <Container fluid>
             <Row>
                 <Col xs={12}>
-                    <h2>Top Wikipedia articles</h2>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs={12}>
                     <ArticleFilters />
                 </Col>
             </Row>
