@@ -1,3 +1,48 @@
+#filterContainer {
+    padding: 20px;
+    background-color: #FFF;
+    border: 1px solid #A5AAAB;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.vertical-rule {
+    border-right: 1px solid #A5AAAB;
+    padding-right: 15px;
+}
+
+@media (max-width: 768px) {
+    #filterContainer {
+        border-radius: 10px;
+    }
+
+    .col-md-3.col-sm-12 {
+        margin: 10px;
+    }
+
+    .vertical-rule {
+        border-right: none;
+        padding-right: 0;
+    }
+}
+
+#filterContainer label {
+    text-transform: uppercase;
+}
+
+#filterContainer img {
+    width: 60px;
+}
+
+#filterContainer select {
+    border: none;
+    min-width: 140px;
+}
+
+#filterContainer Button {
+    padding: 20px;
+}
+
 .select-container {
     position: relative;
     display: inline-block;

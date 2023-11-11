@@ -33,7 +33,7 @@ function ArticlesLayout() {
                         {!loading && !error && currentPageArticles.length === 0 && <p>No articles found</p>}
                         {currentPageArticles.map((article, index) => (
                             <Row key={index}>
-                                <Col xs={1} className="p-2 rank">{article.rank}</Col>
+                                <Col xs={2} md={1} className="p-2 rank">{article.rank}</Col>
                                 <Col className="p-2 title">{(article.article).toString().replaceAll('_', ' ')}</Col>
                                 <Col className="p-2 views">{article.views} views</Col>
                             </Row>

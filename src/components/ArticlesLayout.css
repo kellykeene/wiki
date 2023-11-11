@@ -21,6 +21,18 @@
     margin-top: 20px;
 }
 
+@media (max-width: 768px) {
+    #articlesContainer .row {
+        padding: 20px 0;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    #articlesContainer {
+        padding: 15px 20px;
+    }
+}
+
 #articlesContainer .rank {
     color: #A5AAAB;
     text-align: left;
@@ -33,33 +45,4 @@
 #articlesContainer .views {
     color: #A5AAAB;
     text-align: right;
-}
-
-#filterContainer {
-    padding: 20px;
-    background-color: #FFF;
-    border: 1px solid #A5AAAB;
-    border-radius: 50px;
-    margin-top: 20px;
-}
-
-#filterContainer label {
-    text-transform: uppercase;
-}
-
-#filterContainer img {
-    width: 60px;
-}
-
-#filterContainer select {
-    border: none;
-    min-width: 140px;
-}
-
-#filterContainer Button {
-    padding: 20px;
-}
-
-.vr {
-    margin: 0px 1.2rem;
 }

@@ -1,4 +1,4 @@
-import { describe, expect } from 'vitest';
+import { describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import ArticlePagination from './ArticlePagination';

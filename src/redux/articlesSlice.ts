@@ -23,11 +23,15 @@ const initialState: ArticlesState = {
 };
 
 export const fetchArticles = createAsyncThunk(
-  'articles/fetchArticles',
+  'articles/fetchArticles', 
   async ({ country, date }: { country: string, date: Date}) => {
-    return await fetchMostViewedPages(country, date);
-  }
-);
+    try {
+      const response = fetchMostViewedPages(date, country);
+      return response; // Successful response
+    } catch (error) {
+      throw error; // Throwing the error will allow it to be caught by the rejected action
+    }
+});
 
 const setCurrentPageArticles = (articles: {rank: number, article: string, views: number}[], currentPage: number, resultsPerPage: number) => {
   return articles.slice((currentPage - 1) * resultsPerPage, currentPage * resultsPerPage);

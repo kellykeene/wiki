@@ -71,7 +71,7 @@ function ArticleFilters() {
     return (
         <Container id="filterContainer" fluid>
             <Row>
-                <Col sm={12} md={3}>
+                <Col sm={12} md={3} className="vertical-rule">
 
                     {/* datePickerRef is used to define the area around the open datepicker control 
                     so that we can detect when the user clicks outside of it and close the control. */}
@@ -88,12 +88,11 @@ function ArticleFilters() {
                                 </FloatingLabel>
                                 <div className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)} aria-label="Select a date"></div>
                             </div>
-                            <div className="vr d-none d-md-block" />
                         </div>
                         <ArticleDatePicker isOpen={datePickerIsOpen} value={date} onChange={setDate} />
                     </div>
                 </Col>
-                <Col sm={12} md={3}>
+                <Col sm={12} md={3} className="vertical-rule">
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={numResultsIcon} alt='Num results icon' />
                         <FloatingLabel controlId="floatingSelectResults" label="Num results">
@@ -105,7 +104,6 @@ function ArticleFilters() {
                                 <option value="200">200</option>
                             </Form.Select>
                         </FloatingLabel>
-                        <div className="vr d-none d-md-block" />
                     </div>
                 </Col>
                 <Col sm={12} md={3}>
