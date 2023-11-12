@@ -7,7 +7,7 @@ interface ArticleDatePickerProps {
   isOpen: boolean,
   value: Date,
   onChange: (date: Date) => void,
-};
+}
 
 function ArticleDatePicker({isOpen, value, onChange}: ArticleDatePickerProps) {
 

@@ -25,6 +25,7 @@ const initialState: ArticlesState = {
 export const fetchArticles = createAsyncThunk(
   'articles/fetchArticles', 
   async ({ country, date }: { country: string, date: Date}) => {
+    // eslint-disable-next-line no-useless-catch
     try {
       const response = fetchMostViewedPages(date, country);
       return response; // Successful response

@@ -82,7 +82,7 @@ function ArticleFilters() {
                             <img src={datepickerIcon} alt='Date picker icon' />
                             <div className="select-container">
                                 <FloatingLabel controlId="floatingSelectDate" label="Date">
-                                    <Form.Select value={selectedDateDisplay} onChange={(e) => handleDateSelectChange()}>
+                                    <Form.Select value={selectedDateDisplay} onChange={() => handleDateSelectChange()}>
                                         <option value="1">{selectedDateDisplay}</option>
                                     </Form.Select>
                                 </FloatingLabel>
