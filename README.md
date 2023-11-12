@@ -2,6 +2,8 @@
 
 This is a responsive React + Typescript + Vite + React Bootstrap app that allows users to filter top Wikipedia articles by date and country as well as select the number of results to display per page.
 
+![screenshot lg](./src/assets/readme-screenshot.png)
+
 # Running the app
 
 Install dependencies
