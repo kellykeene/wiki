@@ -3,6 +3,11 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
+    "settings": {
+        "react": {
+          "version": 'detect', // Automatically detect the installed React version
+        },
+    },
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",

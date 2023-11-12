@@ -1,4 +1,4 @@
-import reducer, { setCurrentPage, setResultsPerPage, fetchArticles, ArticlesState } from './articlesSlice'
+import reducer, { setCurrentPage, setResultsPerPage, ArticlesState } from './articlesSlice'
 
 test('should return the initial state', () => {
   expect(reducer(undefined, { type: undefined })).toEqual(
