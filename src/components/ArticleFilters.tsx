@@ -86,7 +86,7 @@ function ArticleFilters() {
                                         <option value="1">{selectedDateDisplay}</option>
                                     </Form.Select>
                                 </FloatingLabel>
-                                <div className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)} aria-label="Select a date"></div>
+                                <div title="dateOverlay" className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)} aria-label="Select a date"></div>
                             </div>
                         </div>
                         <ArticleDatePicker isOpen={datePickerIsOpen} value={date} onChange={setDate} />
@@ -96,12 +96,12 @@ function ArticleFilters() {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={numResultsIcon} alt='Num results icon' />
                         <FloatingLabel controlId="floatingSelectResults" label="Num results">
-                            <Form.Select value={resultsPerPage.toString()} onChange={(e) => handleSetResultsPerPage(Number(e.target.value))} aria-label="Select the number of results per page">
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
+                            <Form.Select data-testid="num-results-select" value={resultsPerPage.toString()} onChange={(e) => handleSetResultsPerPage(Number(e.target.value))} aria-label="Select the number of results per page">
+                                <option data-testid="num-results-select-option" value="25">25</option>
+                                <option data-testid="num-results-select-option" value="50">50</option>
+                                <option data-testid="num-results-select-option" value="75">75</option>
+                                <option data-testid="num-results-select-option" value="100">100</option>
+                                <option data-testid="num-results-select-option" value="200">200</option>
                             </Form.Select>
                         </FloatingLabel>
                     </div>
