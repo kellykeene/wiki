@@ -37,11 +37,11 @@ npm run test
 ```
 fetchMostViewedPages(date: Date, country: string)
 ```
-### Summary
+#### Summary
 fetchMostViewedPages uses the Wikimedia pageviews API to fetch the top 1000 most viewed Wikipedia pages for a single day (date) and country (country).
 
-### Payload
-The fetchMostViewedPages returns a list of article objects with the following interface.
+#### Payload
+The fetchMostViewedPages method returns a list of article objects with the following interface.
 ```
 {
    article: string,

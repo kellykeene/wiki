@@ -5,10 +5,11 @@ import App from './App';
 
 describe('App component', () => {
     test('renders App component', () => {
-        const wrapper = render(<App />);
-        expect(wrapper).toBeTruthy();
+        const { container } = render(<App />);
+        
+        const h2Element = container.querySelector('h2');
 
-        const h2 = wrapper.container.querySelector('h2')
-        expect(h2?.textContent).toBe('Top Wikipedia articles')
+        expect(h2Element).toBeInTheDocument();
+        expect(h2Element?.textContent).toBe('Top Wikipedia articles');
     });
 });
