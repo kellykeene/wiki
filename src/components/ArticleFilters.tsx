@@ -81,9 +81,9 @@ function ArticleFilters() {
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <img src={datepickerIcon} alt='Date picker icon' />
                             <div className="select-container">
-                                <FloatingLabel controlId="floatingSelectDate" label="Date">
-                                    <Form.Select value={selectedDateDisplay} onChange={() => handleDateSelectChange()}>
-                                        <option value="1">{selectedDateDisplay}</option>
+                                <FloatingLabel title="floatingSelectDateLabel" label="Date">
+                                    <Form.Select data-testid="date-select" value={selectedDateDisplay} onChange={() => handleDateSelectChange()}>
+                                        <option data-testid="date-select-option" value="1">{selectedDateDisplay}</option>
                                     </Form.Select>
                                 </FloatingLabel>
                                 <div title="dateOverlay" className="overlay" onClick={() => setDatePickerIsOpen(!datePickerIsOpen)} aria-label="Select a date"></div>
@@ -95,7 +95,7 @@ function ArticleFilters() {
                 <Col sm={12} md={3} className="vertical-rule">
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={numResultsIcon} alt='Num results icon' />
-                        <FloatingLabel controlId="floatingSelectResults" label="Num results">
+                        <FloatingLabel title="floatingSelectResultsLabel" label="Num results">
                             <Form.Select data-testid="num-results-select" value={resultsPerPage.toString()} onChange={(e) => handleSetResultsPerPage(Number(e.target.value))} aria-label="Select the number of results per page">
                                 <option data-testid="num-results-select-option" value="25">25</option>
                                 <option data-testid="num-results-select-option" value="50">50</option>
@@ -109,26 +109,26 @@ function ArticleFilters() {
                 <Col sm={12} md={3}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img src={countryIcon} alt='Country icon' />
-                        <FloatingLabel controlId="floatingCountry" label="Country">
-                            <Form.Select value={country} onChange={(e) => setCountry(e.target.value)} aria-label="Select a country">
-                                <option value="en.wikipedia">English</option>
-                                <option value="de.wikipedia">German</option>
-                                <option value="fr.wikipedia">French</option>
-                                <option value="es.wikipedia">Spanish</option>
-                                <option value="ru.wikipedia">Russian</option>
-                                <option value="ja.wikipedia">Japanese</option>
-                                <option value="it.wikipedia">Italian</option>
-                                <option value="zh.wikipedia">Chinese</option>
-                                <option value="pt.wikipedia">Portuguese</option>
-                                <option value="ar.wikipedia">Arabic</option>
-                                <option value="pl.wikipedia">Polish</option>
-                                <option value="fa.wikipedia">Persian</option>
-                                <option value="tr.wikipedia">Turkish</option>
-                                <option value="nl.wikipedia">Dutch</option>
-                                <option value="id.wikipedia">Indonesian</option>
-                                <option value="sv.wikipedia">Swedish</option>
-                                <option value="uk.wikipedia">Ukrainian</option>
-                                <option value="he.wikipedia">Hebrew</option>
+                        <FloatingLabel title="floatingCountryLabel" label="Country">
+                            <Form.Select data-testid="country-select" value={country} onChange={(e) => setCountry(e.target.value)} aria-label="Select a country">
+                                <option data-testid="country-select-option" value="en.wikipedia">English</option>
+                                <option data-testid="country-select-option" value="de.wikipedia">German</option>
+                                <option data-testid="country-select-option" value="fr.wikipedia">French</option>
+                                <option data-testid="country-select-option" value="es.wikipedia">Spanish</option>
+                                <option data-testid="country-select-option" value="ru.wikipedia">Russian</option>
+                                <option data-testid="country-select-option" value="ja.wikipedia">Japanese</option>
+                                <option data-testid="country-select-option" value="it.wikipedia">Italian</option>
+                                <option data-testid="country-select-option" value="zh.wikipedia">Chinese</option>
+                                <option data-testid="country-select-option" value="pt.wikipedia">Portuguese</option>
+                                <option data-testid="country-select-option" value="ar.wikipedia">Arabic</option>
+                                <option data-testid="country-select-option" value="pl.wikipedia">Polish</option>
+                                <option data-testid="country-select-option" value="fa.wikipedia">Persian</option>
+                                <option data-testid="country-select-option" value="tr.wikipedia">Turkish</option>
+                                <option data-testid="country-select-option" value="nl.wikipedia">Dutch</option>
+                                <option data-testid="country-select-option" value="id.wikipedia">Indonesian</option>
+                                <option data-testid="country-select-option" value="sv.wikipedia">Swedish</option>
+                                <option data-testid="country-select-option" value="uk.wikipedia">Ukrainian</option>
+                                <option data-testid="country-select-option" value="he.wikipedia">Hebrew</option>
                             </Form.Select>
                         </FloatingLabel>
                     </div>

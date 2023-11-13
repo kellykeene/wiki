@@ -24,7 +24,7 @@ function ArticlesLayout() {
             </Row>
             <Row>
                 <Col xs={12}>
-                    <Container id="articlesContainer" fluid>
+                    <Container data-testid="articlesContainer" id="articlesContainer" fluid>
                         {loading && <p>Loading...</p>}
                         {error && <p>An error occurred: {error}</p>}
                         {!loading && !error && currentPageArticles.length === 0 && <p>No articles found</p>}
