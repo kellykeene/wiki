@@ -25,7 +25,7 @@ npm run dev
 npm run build
 npm run preview
 ```
-_NOTE: The default port is 5174 (e.g. http://localhost:5174/). Drop the url that is provided to you into a browser. The port number could vary if port 5174 is in use._
+_NOTE: The default port is 5173 (e.g. http://localhost:5173/). Drop the url that is provided to you into a browser. The port number could vary if port the default port is in use._
 
 ### Tests
 ```
