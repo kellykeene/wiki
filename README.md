@@ -1,4 +1,4 @@
-# Grow Therapy Assessment
+# Wiki API App
 
 This is a responsive React + Typescript + Vite + React Bootstrap app that allows users to filter top Wikipedia articles by date and country as well as select the number of results to display per page.
 
